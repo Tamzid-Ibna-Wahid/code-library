@@ -74,3 +74,5 @@ int32_t main() {
   return 0;
 }
 // https://judge.yosupo.jp/problem/two_edge_connected_components
+
+//If you remove all bridges from a graph, the remaining connected pieces are the 2-edge-connected components.

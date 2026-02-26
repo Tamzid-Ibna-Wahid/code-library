@@ -33,7 +33,7 @@ int main() {
   }
   for(int i = 1; i <= n; i++) if(!vis[i]) dfs1(i);
   reverse(vec.begin(), vec.end());
-  memset(vis, 0, sizeof vis);
+  memset(vis, 0, sizeof(vis));
   int scc = 0;
   for(auto u: vec) {
     if(!vis[u]) {

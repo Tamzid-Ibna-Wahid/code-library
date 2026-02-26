@@ -1,0 +1,175 @@
+#ifdef LOCAL
+#include "Siuuu.h"
+#else
+#define deb(x)
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+using namespace std;
+using namespace __gnu_pbds;
+template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;  // less ,less_equal , greater, greater_equal, cmp, *a.find_by_order() , order_of_key()
+template <typename T> using orderedmulti_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template <typename T, typename R> using ordered_map = tree<T, R, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+typedef long long ll;
+typedef long l;
+typedef long double ld;
+typedef unsigned long long ull;
+typedef long double lld;
+#define endl "\n"
+#define vint vector<int>
+#define vpr vector<pr>
+#define vvint vector<vector<int>>
+#define pr pair<int, int>
+#define REPn(i,n) for(ll i = 0; i < n; i++) 
+#define REPsn(i,s,n) for(ll i = s; i <= n; i++)
+#define print(arr) for(auto &x: arr)cout<<x<<" ";endl;
+#define fast_cin() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define yes cout<<"YES"<<endl
+#define no cout<<"NO"<<endl
+#define int long long
+#define em emplace_back
+#define mp make_pair 
+#define pb push_back 
+#define fi first
+#define se second
+#define all(x) (x).begin(), (x).end()
+#define sum_all(v) accumulate(all(v), 0ll)
+#define sz(x) ((ll)(x).size()) 
+#define INF 2000000000000000000
+#endif
+
+const ll mod = 1e9 + 7;
+
+#define _log2(n)   31 - __builtin_clz(n)
+#define pop_count(n)   __builtin_popcountll(n)
+ll inv(ll i) {if (i == 1) return 1; return (mod - ((mod / i) * inv(mod % i)) % mod) % mod;}
+ll mod_mul(ll a, ll b) {a = a % mod; b = b % mod; return (((a * b) % mod) + mod) % mod;}
+ll mod_add(ll a, ll b) {a = a % mod; b = b % mod; return (((a + b) % mod) + mod) % mod;}
+ll mod_sub(ll a, ll b) {a = a % mod; b = b % mod; return (((a - b + mod) % mod) + mod) % mod;}
+ll ceil_div(ll a, ll b) {return a % b == 0 ? a / b : a / b + 1;}
+int lcm(int a, int b){ if(a*b==0) return 0; else return a*b/__gcd(a,b);}
+
+std::vector<pair<int,int>>knight = {{-1,2}, {1,2}, {-1,-2}, {1,-2}, {2,-1}, {2,1}, {-2,-1}, {-2,1}};
+std::vector<pair<int, int>>movement = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+int dx[] = {1, -1, 0, 0};
+int dy[] = {0, 0, 1, -1};
+
+const int N = 5e5 + 10;
+
+
+int anyBaseToDecimal(string str, int base) {
+    int len = str.length();
+    int power = 1; 
+    int num = 0; 
+    
+    for (int i = len - 1; i >= 0; i--) {
+        char digit = str[i];
+        int value;
+
+        if (digit >= '0' && digit <= '9') {
+            value = digit - '0';
+        } else if (digit >= 'A' && digit <= 'Z') {
+            value = digit - 'A' + 10;
+        } else {
+            return -1;
+        }
+        if (value >= base) {
+            return -1;
+        }
+
+        num += value * power;
+        power *= base;
+    }
+    return num;
+}
+
+
+string decimalToAnyBase(string s, int base) {
+    int num = stoi(s);
+    if (base < 2 || base > 36) {
+        return "Invalid Base";
+    }
+    if (num == 0) {
+        return "0";
+    }
+    string result = "";
+    const string digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    bool is_neg = num < 0;
+    while (num != 0) {
+        result += digits[std::abs(num % base)];
+        num /= base;
+    }
+    if (is_neg) {
+        result += '-';
+    }
+    reverse(result.begin(), result.end());
+
+    return result;
+}
+
+
+
+void siuuuuu(){
+       
+         string s;
+         
+         while(getline(cin, s)){
+            stringstream ss(s);
+            
+            string num;
+            int base;
+            int conv;
+            
+            ss>>num;
+            ss>>base;
+            ss>>conv;
+            
+            int x = anyBaseToDecimal(num, base);
+            num = to_string(x);
+            num = decimalToAnyBase(num, conv);
+            
+            if(sz(num)>7)cout<<"  ERROR"<<endl;
+            else{
+                for(int i = 0;i<7 - sz(num);i++)cout<<" ";
+                    cout<<num<<endl;
+            }            
+         }
+       
+
+
+
+
+
+
+
+}
+
+
+
+
+signed main(){
+
+  #ifdef LOCAL
+  freopen("Error.txt", "w", stderr);
+  #endif
+
+
+     fast_cin();
+     cout << fixed;
+     cout << setprecision(10);
+
+    int tt;
+                tt=1;
+    // cin>>tt;  
+
+   for(int i=1;i<=tt;i++){
+        
+    //cout<<"Case "<<i<<": ";
+        
+        siuuuuu();          
+    }
+  
+    return 0;
+}

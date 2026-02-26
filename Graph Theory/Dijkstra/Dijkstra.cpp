@@ -27,7 +27,8 @@ vector<long long> dijkstra(int s, int t, vector<int> &cnt) {
         d[v] = d[u] + w;
         q.push({d[v], v});
         cnt[v] = cnt[u];
-      } else if(d[u] + w == d[v]) cnt[v] = (cnt[v] + cnt[u]) % mod;
+      } 
+      else if(d[u] + w == d[v]) cnt[v] = (cnt[v] + cnt[u]) % mod;
     }
   }
   return d;

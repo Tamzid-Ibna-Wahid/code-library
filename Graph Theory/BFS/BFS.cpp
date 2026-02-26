@@ -13,6 +13,7 @@ int32_t main() {
     g[u].push_back(v);
     g[v].push_back(u);
   }
+  
   queue<int> q;
   vector<int> d(n + 1, inf), par(n + 1, -1);
   q.push(1);
@@ -28,10 +29,12 @@ int32_t main() {
       }
     }
   }
+  
   if (d[n] == inf) {
     cout << "IMPOSSIBLE\n";
     return 0;
   }
+  
   cout << d[n] + 1 << '\n';
   int cur = n;
   vector<int> path;
@@ -47,3 +50,7 @@ int32_t main() {
   return 0;
 }
 // https://cses.fi/problemset/task/1667
+/**
+ * jodi edge er waight equile hoy tobe tobe
+ * bfs diye shortest path find kora jay
+ * */

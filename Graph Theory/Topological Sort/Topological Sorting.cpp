@@ -28,7 +28,10 @@ int32_t main() {
     }
   }
   reverse(ord.begin(), ord.end());
-
+  
+/*
+Topological sort only be done in directed asycalic graph
+*/
   // check is feasible
   vector<int> pos(n + 1);
   for (int i = 0; i < (int) ord.size(); i++) {

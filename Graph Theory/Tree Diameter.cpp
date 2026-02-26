@@ -34,6 +34,7 @@ int32_t main() {
   int x = farthest(1, n, dx);
   int y = farthest(x, n, dx);
   farthest(y, n, dy);
+  //for each node the maximum distance to another node.
   for (int i = 1; i <= n; i++) {
     cout << max(dx[i], dy[i]) << ' ';
   }
