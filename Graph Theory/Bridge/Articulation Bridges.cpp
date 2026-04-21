@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//If you remove all bridges from a graph,
+//  the remaining connected pieces are the 2-edge-connected components.
+
 struct TECC { // 0 indexed
   int n, k;
   vector<vector<int>> g, t;
@@ -75,4 +78,3 @@ int32_t main() {
 }
 // https://judge.yosupo.jp/problem/two_edge_connected_components
 
-//If you remove all bridges from a graph, the remaining connected pieces are the 2-edge-connected components.

@@ -10,7 +10,7 @@ vector<int>colour(N,0);
 
 bool is_bipartite = true;
 
-void dfs(int vertex, int col){
+void dfs(int vertex, int col){   // col = 1 or 2;
   
     colour[vertex] = col;
     vis[vertex] = true;

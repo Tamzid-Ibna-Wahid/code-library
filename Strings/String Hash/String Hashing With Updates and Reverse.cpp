@@ -84,14 +84,14 @@ struct Hashing {
     t.resize(4 * n + 1);
     build(1, 1, n);
   }
-  void upd(int i, char c) {
+  void upd(int i, char c) {     //1 - indexed 
     upd(1, 1, n, i, c);
     s[i] = c;
   }
-  T get_hash(int l, int r) { // 1 - indexed
+  T get_hash(int l, int r) { // 1 - indexed   [l, r]
     return query(1, 1, n, l, r)[0] * ipw[l - 1];
   }
-  T rev_hash(int l, int r) { // 1 - indexed
+  T rev_hash(int l, int r) { // 1 - indexed  [l, r]
     return query(1, 1, n, l, r)[1] * ipw[n - r];
   }
   T get_hash() {
@@ -105,7 +105,7 @@ int32_t main() {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
   prec();
-  string s; cin >> s;
+  string s; cin >> s; // 0 - indexed
   Hashing H(s);
   int n = s.size();
   int q; cin >> q;
@@ -113,7 +113,7 @@ int32_t main() {
     int ty; cin >> ty;
     if (ty == 1) {
       int k; char c; cin >> k >> c;
-      H.upd(k, c);
+      H.upd(k, c);   // 1 - indexed
     }
     else if (ty == 2) {
       int k; cin >> k;
