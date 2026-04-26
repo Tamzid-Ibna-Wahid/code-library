@@ -38,12 +38,10 @@ int main(){
     // Reconstruct the shortest supersequence
     int i = n, j = m;
     string ans;
-
     while (i > 0 && j > 0) {
         if (x[i-1] == y[j-1]) {
             ans.push_back(x[i-1]);
-            i--;
-            j--;
+            i--;j--;
         } 
         else {
             if (dp[i-1][j] > dp[i][j-1]) {
@@ -56,7 +54,6 @@ int main(){
             }
         }
     }
-
     // Add remaining characters of x or y
     while (i > 0) {
         ans.push_back(x[i-1]);
@@ -66,6 +63,9 @@ int main(){
         ans.push_back(y[j-1]);
         j--;
     }
+    
+     // size(s1) + size(s2) - LCS
+    cout<<"Size : "<< n + m - dp[n][m] << endl;
 
     reverse(ans.begin(), ans.end());
     cout << ans << endl;
