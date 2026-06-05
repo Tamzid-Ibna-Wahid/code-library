@@ -35,7 +35,7 @@ struct Hash {
     pw.push_back(pw.back()*C);
   }
   /*
-    bool isPalindrom(int l, int r){    [l, r]
+    bool isPalindrom(int l, int r){   // [l, r]
       int i = n - 1 - r;
       int j = n - 1 - l;
       return st.range(l, r + 1).x == rv.range(i, j + 1).x;
