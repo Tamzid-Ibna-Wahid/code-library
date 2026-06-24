@@ -23,13 +23,10 @@ void dfs(int node, int parent, vector<int> g[], vector<int>& vis,
 }
 
 signed main(){
-
     fast_cin();
-    
    timer = 0;
    int n, m;
    cin>>n>>m;
-   
    vector<int>g[n];
    
    for(int i = 0;i<m;i++){
@@ -45,9 +42,7 @@ signed main(){
     if(vis[i])continue;
     dfs(i, -1, g, vis, tin, low, bridge);
    } 
-   
     cout<<bridge.size() <<" critical links"<<endl; 
-
      for(auto &it: bridge){
         cout<<it.first<<" - "<<it.second<<endl;
     }

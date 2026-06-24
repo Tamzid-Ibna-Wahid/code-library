@@ -50,13 +50,9 @@ std::vector<pair<int,int>>knight ={{-1,2}, {1,2}, {-1,-2}, {1,-2}, {2,-1}, {2,1}
 const int N = 5e5 + 10;
 
 stack<int>st;
-
 void dfs_1(int vertex, vector<int>g[], vector<int>&vis){
-  
     vis[vertex] = true;
-
     for(auto &child : g[vertex]){
-     
          if(vis[child])continue;
         dfs_1(child, g, vis);
     }
@@ -65,46 +61,31 @@ void dfs_1(int vertex, vector<int>g[], vector<int>&vis){
 
 vector<int>temp;
 vector<vector<int>>scc; //strongly connected component
-
 void dfs_2(int vertex, vector<int>g[], vector<int>&vis){
-  
     vis[vertex] = true;
     temp.pb(vertex);
-    
     for(auto &child : g[vertex]){
          if(vis[child])continue;
         dfs_2(child, g, vis);
     }
-  
 }
 
-
-
-
-
-void siuuuuu(){
-        
+void siuuuuu(){        
         int n, m;
         cin>>n>>m;
-        
         vector<int>adj[n+1], tadj[n+1];
-        
         for(int i = 0;i<m;i++){
             int u, v;
             cin>>u>>v;
             adj[u].pb(v);
             tadj[v].pb(u);
         }
-        
         vector<int> vis(n+1, 0);
-        
         for(int i = 1;i<=n;i++){
             if(vis[i])continue;
             dfs_1(i, adj, vis);
         }
-        
         fill(all(vis), 0);
-        
         while(st.empty() == false){
             int node = st.top();
             st.pop();
@@ -113,25 +94,13 @@ void siuuuuu(){
             scc.pb(temp);
             temp.clear();
         }
-        
         cout<<scc.size()<<endl;
-        
         for(auto &it : scc){
             for(auto j : it){
                 cout<<j<<" ";
             }
             cout<<endl;
         }
-        
-       
-       
-
-
-
-
-
-
-
 }
 
 

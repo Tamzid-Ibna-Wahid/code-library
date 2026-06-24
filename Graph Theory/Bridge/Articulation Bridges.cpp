@@ -2,7 +2,7 @@
 using namespace std;
 
 //If you remove all bridges from a graph,
-//  the remaining connected pieces are the 2-edge-connected components.
+// the remaining connected pieces are the 2-edge-connected components.
 
 struct TECC { // 0 indexed
   int n, k;

@@ -11,7 +11,7 @@ For example, “abc”,  “abg”, “bdf”, “aeg”,  ‘”acefg”, .. et
 
 vector<vector<int>>dp(1001,vector<int>(1001,-1));
  
-int lcm(stirng s,string y,int n,int m){
+int lcs(stirng s,string y,int n,int m){
     if(n==0 || m==0 )return 0;
     if(dp[n][m]!=-1)return dp[n][m];
 
@@ -23,7 +23,7 @@ int lcm(stirng s,string y,int n,int m){
 int main(){
     string x,y;
     cin>>x>>y;
-    int ans = lcm(x,y,x.size(),y.size());
+    int ans = lcs(x,y,x.size(),y.size());
 
     cout<<ans<<endl;
     
