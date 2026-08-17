@@ -82,13 +82,26 @@ inline void add(set<pair<int, int>>& hull, const PT& p, long long& scross) { //n
 }
 
 int main() {
-    long long ucross = 0, dcross = 0;
-    set<pair<int, int>> uhull, dhull;
+    
+    /*
     PT p[] = {PT(0, 0), PT(3, 0), PT(3, 3), PT(0, 3), PT(0, 1), PT(0, 2), PT(3, 1), PT(3, 2)};
     for (int i = 0; i < 5; i++) {
         add(uhull, PT(+p[i].x, +p[i].y), ucross);
         add(dhull, PT(-p[i].x, -p[i].y), dcross);
     }
+    */   
+    long long ucross = 0, dcross = 0;
+    set<pair<int, int>> uhull, dhull;
+    int n; cin >> n;
+    vector<PT> p(n);
+    for (int i = 0; i < n; i++) {
+        cin >> p[i].x >> p[i].y;
+    }
+    for (int i = 0; i < n; i++) {
+    add(uhull, PT(+p[i].x, +p[i].y), ucross);
+    add(dhull, PT(-p[i].x, -p[i].y), dcross);
+    }
+    
     for (iter it = uhull.begin(); it != uhull.end(); it++) {
         cout << "(" << +it->first << "," << +it->second << ") ";
     }

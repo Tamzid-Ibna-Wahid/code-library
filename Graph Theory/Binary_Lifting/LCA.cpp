@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-const int N = 3e5 + 9, LG = 18;
+const int N = 3e5 + 9, LG = 19;
 
 vector<int> g[N];
 int par[N][LG + 1], dep[N], sz[N];

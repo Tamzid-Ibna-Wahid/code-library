@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// 0 - based indexing
+// [l, r)
 typedef long long item;
 // struct item{
 //     int m, c;
@@ -48,8 +50,8 @@ struct segtree{
 
     void range_add(int l, int r, long long v, int x, int lx, int rx){
         push(x, lx, rx);
-        if(rx <= l || lx >= r) return; // no overlap
-        if(lx >= l && rx <= r){        // complete overlap
+        if(rx <= l || lx >= r) return; 
+        if(lx >= l && rx <= r){       
             lazy[x] += v;
             push(x, lx, rx);
             return;
@@ -59,7 +61,7 @@ struct segtree{
         range_add(l, r, v, 2*x+2, m, rx);
         values[x] = merge(values[2*x+1], values[2*x+2]);
     }
-    void range_add(int l, int r, long long v){ range_add(l, r, v, 0, 0, size); }
+    void range_add(int l, int r, long long v){ range_add(l, r, v, 0, 0, size); } 
 
     item calc(int l, int r, int x, int lx, int rx){
         push(x, lx, rx);

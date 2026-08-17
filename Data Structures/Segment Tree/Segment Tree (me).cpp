@@ -2,9 +2,10 @@
 using namespace std;
 #define fast_cin() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
 
-
 const int N = 2000010;
 
+// 0 - based indexing
+// [l, r)
 typedef long long item;
 // struct item{
 //     int m, c;
