@@ -34,7 +34,7 @@ signed main(){
         cin>>x;
         ans = multyply(ans, x);
     } 
-    reverse(all(ans));
+    reverse(all(ans)); // after all multiplication reverse the string 
     
     cout<<ans<<endl; 
         

@@ -59,9 +59,6 @@ for(int factor : prime_factors)cout<<factor<<" ";
     
 }
 
-
-
-
 //count er maddhome korte chaile
     num = 1356;
    map<int,int>mp;
@@ -71,7 +68,6 @@ for(int factor : prime_factors)cout<<factor<<" ";
             num /=prime_factor;
            mp[prime_factor]++;
         }
-
     }
 // print
 for(auto it : mp)cout<<"Prime "<<it.first<<" count "<<it.second<<endl;
