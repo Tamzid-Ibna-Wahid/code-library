@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Smallest Nonnegative Integer x s.t. l <= ax % p <= r.cpp
+
 const int N = 1e9, mod = 1e9 + 7;
 
 using T = __int128;
