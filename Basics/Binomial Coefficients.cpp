@@ -15,9 +15,13 @@ void prec() {
   finv[0] = 1;
   for (int i = 1; i < N; i++) finv[i] = 1LL * inv[i] * finv[i - 1] % mod;
 }
-int ncr(int n, int r) {
+int nCr(int n, int r) {
   if (n < r || n < 0 || r < 0) return 0;
   return 1LL * f[n] * finv[n - r] % mod * finv[r] % mod;
+}
+int nPr(int n, int r){
+  if (n < r || n < 0 || r < 0) return 0;
+  return 1LL * f[n] * finv[n - r] % mod;
 }
 
 // void brute() {
@@ -38,7 +42,7 @@ int32_t main() {
   int q; cin >> q;
   while (q--) {
     int n, r; cin >> n >> r;
-    cout << ncr(n, r) << '\n';
+    cout << nCr(n, r) << '\n';
   }
   return 0;
 }
