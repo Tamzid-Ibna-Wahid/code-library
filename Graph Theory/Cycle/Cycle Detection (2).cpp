@@ -23,7 +23,6 @@ void reconstract_path(int cycle_start, int cycle_end){
 void find_cycle(int vertex){ 
      state[vertex] = 2;
     for(auto &child : g[vertex]){
-     
     if(state[child] == 2){
         is_cycle = true;
         reconstract_path(child, vertex);
@@ -46,8 +45,8 @@ signed main(){
        
   for(int i = 0;i<m;i++){
     int u, v;
-    cin>>u>>v;
-    g[u].push_back(v);
+    cin>>u>>v;     // 1 - based
+    g[u].push_back(v);  
   }
          
   for(int i = 1;i<=n;i++){
@@ -58,9 +57,7 @@ signed main(){
        
    if(!is_cycle){
     cout<<"IMPOSSIBLE";
-   }    
-    
-        
+   }        
         
     return 0;
 }
