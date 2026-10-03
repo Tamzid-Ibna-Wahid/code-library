@@ -59,9 +59,9 @@ signed main(){
         int n, k;
         cin>>n>>k;
         findFirstAndLastM(n, k, 3);         
-    }
-        
-        
+    }   
         
     return 0;
 }
+
+// https://lightoj.com/problem/leading-and-trailing
