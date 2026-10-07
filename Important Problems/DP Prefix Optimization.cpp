@@ -1,0 +1,113 @@
+#ifdef LOCAL
+#include "Siuuu.h"
+#else
+#define deb(x)
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+
+using namespace std;
+using namespace __gnu_pbds;
+template <typename T> using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;  // less ,less_equal , greater, greater_equal, cmp, *a.find_by_order() , order_of_key()
+template <typename T> using orderedmulti_set = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template <typename T, typename R> using ordered_map = tree<T, R, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+typedef long long ll;
+typedef long l;
+typedef long double ld;
+typedef unsigned long long ull;
+typedef long double lld;
+#define endl "\n"
+#define vint vector<int>
+#define vpr vector<pr>
+#define vvint vector<vector<int>>
+#define pr pair<int, int>
+#define REPn(i,n) for(ll i = 0; i < n; i++) 
+#define REPsn(i,s,n) for(ll i = s; i <= n; i++)
+#define print(arr) for(auto &x: arr)cout<<x<<" ";endl;
+#define fast_cin() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
+#define yes cout<<"YES"<<endl
+#define no cout<<"NO"<<endl
+#define int long long
+#define em emplace_back
+#define mp make_pair 
+#define pb push_back 
+#define fi first
+#define se second
+#define all(x) (x).begin(), (x).end()
+#define sum_all(v) accumulate(all(v), 0ll)
+#define sz(x) ((ll)(x).size()) 
+#define INF 2000000000000000000
+#endif
+
+const ll mod = 1e9 + 7;
+
+#define _log2(n)   31 - __builtin_clz(n)
+#define _log2_ll(n)   63 - __builtin_clzll(n)
+#define pop_count(n)   __builtin_popcountll(n)
+ll mod_inv(ll i) {if (i == 1) return 1; return (mod - ((mod / i) * mod_inv(mod % i)) % mod) % mod;}
+ll mod_mul(ll a, ll b) {a = a % mod; b = b % mod; return (((a * b) % mod) + mod) % mod;}
+ll mod_add(ll a, ll b) {a = a % mod; b = b % mod; return (((a + b) % mod) + mod) % mod;}
+ll mod_sub(ll a, ll b) {a = a % mod; b = b % mod; return (((a - b + mod) % mod) + mod) % mod;}
+ll ceil_div(ll a, ll b) {return a % b == 0 ? a / b : a / b + 1;}
+int lcm(int a, int b){ if(a*b==0) return 0; else return a*b/__gcd(a,b);}
+
+std::vector<pair<int,int>>knight = {{-1,2}, {1,2}, {-1,-2}, {1,-2}, {2,-1}, {2,1}, {-2,-1}, {-2,1}};
+int dx[] = {1, -1, 0, 0};
+int dy[] = {0, 0, 1, -1};
+
+const int N = 5e5 + 10;
+
+
+void siuuuuu(){
+       
+         int n, k, p;
+         cin>>n>>k>>p;
+         
+         vint dp(n*k + 1), newDp(n*k + 1);
+         dp[0] = 1;
+         
+         for(int shot = 1;shot <= n ;shot++){
+            int window = 0;
+            for(int score = 1; score <= n*k ; score++){
+                window = (window + dp[score - 1]) % mod;
+                
+                // remove dp[score - k - 1] because we can not go from score - k - 1 to score
+                if (score - k - 1 >= 0) {
+                    window = (window - dp[score - k - 1] + mod) % mod;
+                }
+                
+                newDp[score] = window;
+            }
+            swap(dp, newDp);
+            newDp.assign(n*k, 0);
+         }
+         
+         int ans = 0;
+         for(int i = p+1;i<=n*k;i++){
+            ans = mod_add(ans, dp[i]);
+         }
+         cout<<ans<<endl;
+       
+}
+
+// https://codeforces.com/gym/104454/problem/B
+
+signed main(){
+
+  #ifdef LOCAL
+  freopen("Error.txt", "w", stderr);
+  #endif
+      fast_cin();
+      cout << fixed;
+      cout << setprecision(10);
+
+    int tt; tt=1;
+                // cin>>tt;  
+                
+   for(int i=1;i<=tt;i++){
+        //cout<<"Case "<<i<<": ";
+        siuuuuu();          
+    }
+    return 0;
+}
